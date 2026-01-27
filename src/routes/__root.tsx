@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from '../components/header'
 import { useLockBodyScroll } from '../hooks/use-lock-body-scroll'
 import { NavigationMenu } from '../components/navigation-menu'
+import { Footer } from '../components/footer'
 
 const RootLayout = () => {
   const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(false)
@@ -14,7 +15,7 @@ const RootLayout = () => {
   useLockBodyScroll(isOpenBurgerMenu)
 
   return (
-    <div className='m-0 mx-auto p-0 flex-col min-h-[100vh] no-scrollbar'>
+    <div className='relative m-0 mx-auto p-0 flex flex-col no-scrollbar'>
       <Header
         isOpenBurgerMenu={isOpenBurgerMenu}
         toggleBurgerMenu={toggleBurgerMenu} />
@@ -23,28 +24,24 @@ const RootLayout = () => {
           <NavigationMenu />
         }
       </AnimatePresence>
-      <main className='relative py-[70px] mx-3 overflow-y-hidden no-scrollbar'>
+      <main className='
+                      relative flex-1 px-[15px] 
+                      md:px-[25px]
+                      xl:px-7'>
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isOpenBurgerMenu ? { opacity: 1, transition: { duration: 1 } } : { opacity: 0, transition: { duration: 1 } }}
-          className='absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur z-[20] no-scrollbar' />
+          animate={isOpenBurgerMenu
+            ? { opacity: 1, transition: { duration: 1 } }
+            : { display: 'none', opacity: 0, transition: { duration: 1 } }
+          }
+          className='absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur z-[20]' />
         <AnimatePresence mode="wait">
           <Outlet />
         </AnimatePresence>
+        <Footer />
       </main>
     </div >
   )
 }
 
 export const Route = createRootRoute({ component: RootLayout })
-
-{/* <AnimatePresence mode="wait">
-          <motion.div
-            className='absolute top-0 left-0 w-full h-[150vh] bg-white'
-            key={location.pathname}
-            initial={{ y: -1000 }}
-            animate={{ y: 1000 }}
-            transition={{ duration: 3 }}
-          >
-          </motion.div>
-        </AnimatePresence> */}

@@ -1,0 +1,1 @@
+export { TextComponent, CaptionText } from "./text"

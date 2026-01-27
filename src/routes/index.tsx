@@ -1,24 +1,27 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { HeroSection } from './sections/hero-section'
+import { ProjectSection } from './sections/project-section'
+import { ClientSection } from './sections/client-section'
+import { LargeProjectSection } from './sections/large-project-section'
+import { WorkDirectionsSection } from './sections/work-directions-section'
+import { AwardsSection } from './sections/awards-section'
 
-export const mainTransitionProps = {
-  initial: { y: -20, opacity: 0, position: 'absolute' },
-  animate: { y: 0, opacity: 1, damping: 5 },
-  exit: { y: 60, opacity: 0 },
-  transition: {
-    type: 'spring',
-    stiffness: 150,
-    damping: 10,
-  },
-} as const
 
 export const Route = createFileRoute('/')({
   component: Index
 })
 
 function Index() {
+
   return (
-    <div className="p-2 no-scrollbar">
-      <h3 className='text-[100rem]'>Welcome Home!</h3>
-    </div>
+    <>
+      <HeroSection />
+      <ProjectSection />
+      <ClientSection />
+      <LargeProjectSection />
+      <WorkDirectionsSection />
+      <AwardsSection />
+    </>
   )
 }
+

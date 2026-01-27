@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { useScrollDirection } from '../../hooks/use-scroll-direction'
 import { BurgerMenu } from './header-burger-menu'
 import { HeaderLogo } from './header-logo'
 import { navigationConfig } from '../../config/navigation.config'
@@ -7,6 +6,8 @@ import { createHeaderListVariants, headerVariants, headerLinkVariants } from './
 import { useHeaderAnimationState } from './model/header-animation.state'
 import { LinkUnderline, SimpleLink } from '../ui/link'
 import { List } from '../ui/list'
+import { useSharedScrollState } from '../../providers/scroll-provider'
+import { useMediaQueryState } from '../../providers/media-query-provider'
 
 interface HeaderMenuProps {
     isOpenBurgerMenu: boolean,
@@ -14,16 +15,25 @@ interface HeaderMenuProps {
 }
 
 export function Header({ isOpenBurgerMenu, toggleBurgerMenu }: HeaderMenuProps) {
-    const { scrollDirection } = useScrollDirection()
+    const { isTablet, isMobile } = useMediaQueryState()
+    const isDisableAnimation = isTablet || isMobile
+    const { scrollDirection } = useSharedScrollState()
     const { hasAnimatedOnce, markAnimated } = useHeaderAnimationState()
 
-    const listVariants = createHeaderListVariants(hasAnimatedOnce)
+    const listVariants = isDisableAnimation
+        ? undefined
+        : createHeaderListVariants(hasAnimatedOnce)
 
     return (
         <motion.header
-            variants={headerVariants}
-            initial="visible"
-            animate={scrollDirection === 'up' ? 'visible' : 'hidden'}
+            variants={isDisableAnimation ? undefined : headerVariants}
+            initial={isDisableAnimation ? false : "visible"}
+            animate={isDisableAnimation
+                ? false
+                : scrollDirection === 'up'
+                    ? 'visible'
+                    : 'hidden'
+            }
             className='fixed top-0 left-0 w-full bg-neutral-800 z-[1000]'>
             <nav className={`h-16 px-3 py-2 border-b border-white/50`}>
                 <div className='px-4 flex items-center justify-between'>

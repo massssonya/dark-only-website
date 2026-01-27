@@ -14,7 +14,7 @@ export const NavigationMenuList = ({ changeHoveredLink }: Props) => {
         <List
             isOpen={false}
             variants={listVariants}
-            className='mt-28 pl-[clamp(3rem,5vw,3rem))] h-fit flex flex-col gap-1 [grid-area:list]'>
+            className='mt-28 h-fit flex flex-col gap-1 [grid-area:list]'>
             {navigationConfig.menu.map((item) => (
                 <motion.li
                     key={`${item.to}_mobile`}
@@ -23,7 +23,7 @@ export const NavigationMenuList = ({ changeHoveredLink }: Props) => {
                     onHoverStart={() => changeHoveredLink(item.to)}
                 >
                     <SimpleLink
-                        className="text-white text-[calc(1.8rem+0.5vw)] font-bold transition duration-300 hover:text-gray-400"
+                        className="text-white text-[calc(1.4rem+0.5vw)] font-bold transition duration-300 hover:text-gray-400"
                         to={item.to}>
                         {({ isActive }) => (
                             <NavigationMenuLink

@@ -9,5 +9,10 @@ export const Route = createFileRoute('/contacts')({
 })
 
 function Contacts() {
-  return <div className="p-2">Hello from contacts!</div>
+
+  return (
+    <>
+      Contacts
+    </>
+  )
 }

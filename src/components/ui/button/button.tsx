@@ -2,13 +2,19 @@ import type { ButtonHTMLAttributes, ReactNode } from "react"
 import clsx from "clsx"
 
 interface Props {
-    children: ReactNode
+  children: ReactNode
 }
 
 type ButtonVariant = "primary" | "link"
 
 const styles = {
-  base: "w-[300px] px-22 py-5 font-medium text-nowrap text-md text-black rounded-xl hover:rounded-4xl cursor-pointer transition-all duration-300 hover:scale-[1.07]",
+  base: `
+        font-medium text-nowrap text-black rounded-xl cursor-pointer 
+        xl:px-18 xl:py-5 xl:text-md
+        md:w-fit md:px-12 md:py-3 md:text-sm
+        w-full py-3 px-6 text-sm
+        transition-all duration-300 hover:rounded-4xl hover:scale-[1.07] 
+        `,
   primary: "bg-white hover:bg-black hover:text-white",
   link: "bg-emerald-300 text-black",
 }

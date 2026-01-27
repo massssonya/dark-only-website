@@ -20,5 +20,8 @@ export const navigationConfig = {
     telegram: { label: "@onlydigitalagency", href: "https://t.me/onlydigitalagency" },
     email: { label: "hello@only.digital", href: "mailto:hello@only.digital" },
     phone: { label: "+7 (495) 740 99 79", href: "tel:+7 (495) 740 99 79" },
-    copyright: {company: "Only.digital", years: "© 2014 - 2025"}
+    copyright: { company: "Only.digital", years: "© 2014 - 2025" },
+    confidentiality: {
+        href: "https://only.digital/pdf/%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D0%9E%D0%BD%D0%BB%D0%B8_2025.pdf"
+    }
 } as const

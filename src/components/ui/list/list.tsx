@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 
 interface Props {
     children: ReactNode,
-    variants: Variants,
+    variants: Variants | undefined,
     isOpen?: boolean,
     className?: string
 }

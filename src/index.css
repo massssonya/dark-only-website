@@ -16,11 +16,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body,
-html {
-  /* overflow: hidden; */
+* {
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
-
 
 h1,
 h2,
@@ -30,7 +32,8 @@ h5,
 h6,
 li,
 span,
-button {
+button,
+p {
   font-family: 'TT Runs Trial', sans-serif;
 }
 
@@ -38,6 +41,167 @@ button {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h3 {
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+.h0 {
+  font-size: 1.875rem;
+}
+
+.h0,
+.h1 {
+  font-family: TT Runs, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: 125%;
+}
+
+.h2 {
+  font-size: 1.25rem;
+}
+
+.h2,
+.h3 {
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: 120%;
+}
+
+.h4 {
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: 116%;
+}
+
+.h4,
+.h5 {
+  font-size: .9375rem;
+}
+
+.h5 {
+  line-height: 125%;
+}
+
+.h5,
+.h6 {
+  font-family: TT Commons Pro, Arial, sans-serif;
+  font-weight: 500;
+}
+
+.h6 {
+  font-size: .75rem;
+  line-height: 120%;
+}
+
+.h7 {
+  font-size: .625rem;
+  line-height: 110%;
+}
+
+.h6,
+.h7 {
+  letter-spacing: -.03em;
+}
+
+.h7,
+.text1 {
+  font-weight: 500;
+}
+
+.text2 {
+  font-family: TT Commons Pro, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.captions {
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 110%;
+  text-transform: lowercase;
+}
+
+.number {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: 90%;
+}
+
+@media (min-width: 375px) {
+  .h0 {
+    font-size: calc(1.3979rem + 10.03562vw);
+  }
+
+  .h2 {
+    font-size: 1.25rem;
+  }
+
+  .h4,
+  .h5 {
+    font-size: .9375rem;
+  }
+
+  .h6 {
+    font-size: calc(.69036rem + .25445vw);
+  }
+
+  .h7 {
+    font-size: calc(.50573rem + .50891vw);
+  }
+
+  .captions {
+    font-size: calc(.69036rem + .25445vw);
+  }
+
+  .number {
+    font-size: calc(1.51145rem + 1.01781vw);
+  }
+}
+
+@media (min-width: 768px) {
+  .h0 {
+    font-size: calc(2rem + .78125vw);
+  }
+
+  .h2 {
+    font-size: calc(.875rem + .78125vw);
+  }
+
+  .h4,
+  .h5 {
+    font-size: calc(.84375rem + .19531vw);
+  }
+
+  .h6 {
+    font-size: calc(.71875rem + .19531vw);
+  }
+
+  .h7 {
+    font-size: calc(.65625rem + .19531vw);
+  }
+
+  .text2 {
+    font-size: calc(.84375rem + .19531vw);
+  }
+}
+
+@media (min-width: 1280px) {
+  .h2 {
+    font-size: calc(.5rem + 1.25vw);
+  }
+
+  .number {
+    font-size: calc(-1rem + 5vw);
+  }
 }
 
 
@@ -53,36 +217,3 @@ h1 {
   scrollbar-width: none;
   /* Firefox */
 }
-
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
