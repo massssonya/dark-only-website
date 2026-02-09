@@ -13,8 +13,6 @@ import { PresentationDocuments, TelegramInfo } from '../common'
 import { ContactsInfo } from '../common/contacts'
 import { Grid, GridItem, type GridProps } from '../ui/layout'
 
-// video, telegram, contacts, socials, locale, documents, copyright, favorite, gallery, button, list
-
 const configGrid: GridProps = {
     base: {
         rows: "auto repeat(7, min-content)",
@@ -69,7 +67,7 @@ export const NavigationMenu = () => {
             <div className='relative w-full h-full'>
                 <Grid {...configGrid} className='
                                                 absolute top-[52px] left-0 w-[100vw] h-[calc(100dvh-52px)]
-                                                overflow-y-auto overflow-x-hidden 
+                                                overflow-y-auto overflow-x-hidden
                                                 no-scrollbar
                                                 px-[15px] pb-[15px]
                                                 md:px-[25px] md:pb-[25px]
@@ -127,5 +125,3 @@ export const NavigationMenu = () => {
         </motion.div >
     )
 }
-
-
