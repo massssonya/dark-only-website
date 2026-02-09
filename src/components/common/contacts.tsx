@@ -1,23 +1,23 @@
 import clsx from "clsx"
 import { navigationConfig } from "../../config/navigation.config"
 import { LinkHrefWithoutUnderlineButton, LinkHrefWithUnderlineButton } from "../ui/link/link-button"
-import { CaptionText, TextComponent } from "../ui/text"
+import { CaptionText } from "../ui/text"
 import { TelegramIcon } from "../ui/icons";
 
 interface Props {
+    isLabel?: boolean;
     isIconLeft?: boolean;
     isIconRight?: boolean;
 }
 
-export const TelegramInfo = ({ isIconLeft, isIconRight }: Props) => {
+export const TelegramInfo = ({ isIconLeft, isIconRight, isLabel }: Props) => {
     return (
         <div className='flex flex-col'>
             <CaptionText
-                className='
-                            hidden text-gray-300
-                            md:block
-                            text-[calc(0.28rem+0.5vw)]
-                            '
+                className={`
+                            ${!isLabel && 'hidden'} text-gray-300
+                            text-[calc(0.28rem+0.5vw)]`
+                }
             >
                 telegram для связи
             </CaptionText>

@@ -51,6 +51,11 @@ h3 {
   unicode-bidi: isolate;
 }
 
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
 .h0 {
   font-size: 1.875rem;
 }
@@ -121,6 +126,36 @@ h3 {
   line-height: 140%;
 }
 
+.text2,
+.text3 {
+  font-family: TT Commons Pro, Arial, sans-serif;
+  font-size: .9375rem;
+  letter-spacing: -.02em;
+}
+
+.text3,
+.text4 {
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.text4 {
+  font-family: TT Commons Pro, Arial, sans-serif;
+  font-size: .75rem;
+  letter-spacing: -.02em;
+}
+
+.buttons,
+.description {
+  font-size: .8125rem;
+  letter-spacing: -.03em;
+  line-height: 120%;
+}
+
+.buttons {
+  font-weight: 600;
+}
+
 .captions {
   font-size: .75rem;
   font-weight: 500;
@@ -136,9 +171,14 @@ h3 {
   line-height: 90%;
 }
 
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 @media (min-width: 375px) {
   .h0 {
-    font-size: calc(1.3979rem + 10.03562vw);
+    font-size: calc(1.3979rem + 2.03562vw);
   }
 
   .h2 {
@@ -158,12 +198,33 @@ h3 {
     font-size: calc(.50573rem + .50891vw);
   }
 
+  .text2,
+  .text3 {
+    font-size: .9375rem;
+  }
+
+  .text4 {
+    font-size: .75rem;
+  }
+
   .captions {
     font-size: calc(.69036rem + .25445vw);
   }
 
+  .buttons,
+  .description,
+  .menu {
+    font-size: .8125rem;
+  }
+
   .number {
     font-size: calc(1.51145rem + 1.01781vw);
+  }
+}
+
+@media (min-width: 375px) and (height <=500px) {
+  .h0 {
+    font-size: 1.875rem;
   }
 }
 
@@ -192,15 +253,59 @@ h3 {
   .text2 {
     font-size: calc(.84375rem + .19531vw);
   }
+
+  .text3 {
+    font-size: .9375rem;
+  }
+
+  .text4 {
+    font-size: .75rem;
+  }
+}
+
+@media (min-width: 768px) and (height <=500px) {
+  .h0 {
+    font-size: calc(1.78828rem + .18066vw);
+  }
 }
 
 @media (min-width: 1280px) {
+  .h0 {
+    font-size: calc(-1.375rem + 5vw);
+  }
+
   .h2 {
     font-size: calc(.5rem + 1.25vw);
   }
 
+  .text4 {
+    font-size: .75rem;
+  }
+
   .number {
     font-size: calc(-1rem + 5vw);
+  }
+}
+
+@media (min-width: 1280px) and (height <=500px) {
+  .h0 {
+    font-size: calc(1.83646rem + .0803vw);
+  }
+}
+
+@media (min-width: 1440px) {
+  .h0 {
+    font-size: calc(.5rem + 2.91667vw);
+  }
+
+  .text4 {
+    font-size: .83333vw;
+  }
+}
+
+@media (min-width: 1440px) and (height <=500px) {
+  .h0 {
+    font-size: calc(1.83646rem + .0803vw);
   }
 }
 

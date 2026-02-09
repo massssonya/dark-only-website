@@ -6,13 +6,11 @@ import { LargeProjectSection } from './sections/large-project-section'
 import { WorkDirectionsSection } from './sections/work-directions-section'
 import { AwardsSection } from './sections/awards-section'
 
-
 export const Route = createFileRoute('/')({
   component: Index
 })
 
 function Index() {
-
   return (
     <>
       <HeroSection />

@@ -14,7 +14,7 @@ export const NavigationMenuList = ({ changeHoveredLink }: Props) => {
         <List
             isOpen={false}
             variants={listVariants}
-            className='mt-28 h-fit flex flex-col gap-1 [grid-area:list]'>
+            className='h-fit flex flex-col gap-1'>
             {navigationConfig.menu.map((item) => (
                 <motion.li
                     key={`${item.to}_mobile`}

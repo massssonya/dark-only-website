@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router"
+import styled from "@emotion/styled"
 import clsx from "clsx"
 import type { ReactNode } from "react"
 
@@ -57,27 +57,58 @@ export const LinkHrefWithoutUnderlineButton = ({ children, href, className }: {
     )
 }
 
-export const LinkButton = ({ children, to, leftText, className }: {
-    children: ReactNode,
-    to: string,
-    leftText?: string | number,
-    className?: string
-}) => {
-    return (
-        <Link
-            to={to}
-            className={clsx(defaultStyleLinkButton, className)}>
-            {leftText &&
-                <p className="
-                        h7 absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full pr-2
-                        text-white
-                        ">
-                    {leftText}
-                </p>
-            }
+// export const LinkButton = ({ children, to, leftText, className }: {
+//     children: ReactNode,
+//     to: string,
+//     leftText?: string | number,
+//     className?: string
+// }) => {
+//     return (
+//         <Link
+//             to={to}
+//             className={clsx(defaultStyleLinkButton, className)}>
+//             {leftText &&
+//                 <p className="h7 absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full pr-2 text-white">
+//                     {leftText}
+//                 </p>
+//             }
 
-            {children}
-        </Link>
-    )
+//             {children}
+//         </Link>
+//     )
+// }
+
+const variants = {
+    base: ``,
+    changeColor: `
+        color: oklch(87.2% 0.01 258.338);
+    `,
+    scale: `
+        color: oklch(87.2% 0.01 258.338);
+        :hover {
+            color: white;
+            span:has(svg){
+                scale: 1.1;
+            }
+        }
+        
+    `
 }
 
+interface Props {
+    $variant?: keyof typeof variants;
+}
+
+export const LinkButton = styled.a<Props>`
+${({ $variant = 'base' }) => {
+        const v = variants[$variant]
+        return `
+      ${v}
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  `
+    }
+    }
+`

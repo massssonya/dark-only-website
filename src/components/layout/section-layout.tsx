@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import type { ReactNode } from "react"
+import { Container } from "../ui/layout"
 
 interface Props {
     title: ReactNode,
@@ -10,11 +11,11 @@ interface Props {
 
 function SectionLayout({ title, description, content, className }: Props) {
     return (
-        <div className={clsx("relative ", className)}>
-            <div className="
-                            border-t grid md:grid-cols-2 
-                            ">
-                
+        <div className={clsx("relative md:flex md:flex-col md:gap-[5.5vw]", className)}>
+            <div className="relative grid md:grid-cols-2">
+                <Container className="absolute">
+                    <hr className="h-px w-full bg-white" />
+                </Container>
                 <SectionLayout.Title>
                     {title}
                 </SectionLayout.Title>
@@ -31,24 +32,24 @@ function SectionLayout({ title, description, content, className }: Props) {
 
 const Title = ({ children }: { children: ReactNode }) => {
     return (
-        <div className="pt-[2.78vw]">
+        <Container className="mb-[24px] pt-[20px] md:pt-[2.78vw]">
             <h2 className="h6 lowercase text-[1rem]">{children}</h2>
-        </div>
+        </Container>
     )
 }
 
 const Description = ({ children }: { children: ReactNode }) => {
     return (
-        <div className="pt-[2.78vw] md:pl-[2.78vw] md:border-l">
+        <Container className="pt-[2.78vw] md:border-l">
             {children}
-        </div>
+        </Container>
     )
 }
 
 const Content = ({ children }: { children: ReactNode }) => {
     return (
         <div className="">
-            <h2>{children}</h2>
+            {children}
         </div>
     )
 }

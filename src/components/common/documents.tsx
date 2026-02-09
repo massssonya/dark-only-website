@@ -14,7 +14,7 @@ export const PresentationDocuments = () => {
                     </LinkHrefButton>
                 ))
             }
-            <TextComponent as="span" className='lowercase ml-2 w-10 text-sm text-gray-300 leading-none' > Презентация компании</TextComponent>
+            <TextComponent as="span" className='captions hidden md:inline xl:hidden ml-2 w-10'>Презентация компании</TextComponent>
         </div>
     )
 }

@@ -24,10 +24,7 @@ const RootLayout = () => {
           <NavigationMenu />
         }
       </AnimatePresence>
-      <main className='
-                      relative flex-1 px-[15px] 
-                      md:px-[25px]
-                      xl:px-7'>
+      <main className="relative flex-1">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isOpenBurgerMenu

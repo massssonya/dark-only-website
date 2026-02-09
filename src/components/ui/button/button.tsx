@@ -1,36 +1,107 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react"
-import clsx from "clsx"
+import styled from "@emotion/styled"
+
+const variants = {
+  base: `
+      height: fit-content;
+      padding: 1.30208vw 3.90625vw;
+      display: inline-block;
+      
+      background-color: white;
+
+      text-align: center;
+
+      :hover {
+          background-color: black;
+          color: white;
+          border-radius: calc(10px*2);
+          box-shadow: 0 7px 18px -15px hsla(0, 0%, 5%, .04), 0 20px 20px 0 hsla(0, 0%, 5%, .05), 0 24px 19px -30px hsla(0, 0%, 5%, .25);
+          scale: 1.1;
+      }
+
+      @media (min-width: 320px) {
+
+      }
+
+
+      @media (min-width: 768px) {
+        padding: 16px 53px;
+      }
+
+      @media (min-width: 1280px) {
+        padding: 1.52778vw 4.51389vw;
+      }
+  `,
+  gallery: `
+      
+      background-color: oklch(84.5% 0.143 164.978);
+
+      :hover {
+          border-radius: calc(10px*2);
+          box-shadow: 0 7px 18px -15px hsla(0, 0%, 5%, .04), 0 20px 20px 0 hsla(0, 0%, 5%, .05), 0 24px 19px -30px hsla(0, 0%, 5%, .25);
+          scale: 1.1;
+      }
+
+      @media (min-width: 1920px){
+        border-radius: 1.5625vw;
+        height: 11.25vw;
+        padding: 2.0833333333vw;
+
+        :hover {
+            border-radius: 3.125vw;
+         }
+      }
+
+      @media (min-width: 1440px) {
+        border-radius: 1.7361111111vw;
+        height: 11.25vw;
+        padding: 1.3888888889vw;
+        
+        :hover {
+            border-radius: 3.4722222222vw;;
+         }
+    }
+      @media (min-width: 1280px) {
+        border-radius: 1.953125vw;
+        display: flex;
+        height: 12.421875vw;
+        padding: 1.5625vw;
+
+        :hover {
+          border-radius: 3.90625vw;
+        }
+    }
+`
+} as const
+
+const width = {
+  full: '100%',
+  fit: 'fit-content'
+} as const
 
 interface Props {
-  children: ReactNode
+  $variant?: keyof typeof variants;
+  $width?: keyof typeof width;
 }
 
-type ButtonVariant = "primary" | "link"
+export const Button = styled.button<Props>`
+${({ $variant = 'base', $width = 'fit' }) => {
+    const v = variants[$variant]
+    const w = width[$width]
+    return `
+      ${v}
+      width: ${w};
 
-const styles = {
-  base: `
-        font-medium text-nowrap text-black rounded-xl cursor-pointer 
-        xl:px-18 xl:py-5 xl:text-md
-        md:w-fit md:px-12 md:py-3 md:text-sm
-        w-full py-3 px-6 text-sm
-        transition-all duration-300 hover:rounded-4xl hover:scale-[1.07] 
-        `,
-  primary: "bg-white hover:bg-black hover:text-white",
-  link: "bg-emerald-300 text-black",
-}
+      border-radius: 10px;
 
-export const Button = ({
-  children,
-  variant = "primary",
-  className,
-  ...props
-}: Props & ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant
-}) => (
-  <button
-    {...props}
-    className={clsx(styles.base, styles[variant], className)}
-  >
-    {children}
-  </button>
-)
+      font-weight: 600;
+      color: black;
+
+      cursor: pointer;
+
+      transition: background-color .3s ease, color .3s ease, border-radius .3s ease, scale .3s ease, box-shadow .3s ease;
+
+     
+  `
+  }
+  }
+`

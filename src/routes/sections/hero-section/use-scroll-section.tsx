@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useMediaQueryState } from "../../../providers/media-query-provider";
 
 export function useScrollSection() {
-  const {isMobile, isTablet} = useMediaQueryState()
+  const { isMobile, isTablet } = useMediaQueryState()
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -47,5 +47,7 @@ export function useScrollSection() {
     }
   };
 
-  return { sectionRef, handleScroll, translateY, videoWidth, videoHeight, isTablet, isMobile }
+  return {
+    sectionRef, handleScroll, translateY, videoWidth, videoHeight, isTablet, isMobile
+  }
 }
