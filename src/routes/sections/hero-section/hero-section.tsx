@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from "framer-motion"
 import { useScrollSection } from "./use-scroll-section"
 import { Video } from "./video"
 import { DesktopHeroSectionBottom, MobileHeroSectionBottom, TabletHeroSectionBottom } from "./hero-section-bottom"
@@ -56,12 +57,27 @@ export function HeroSection() {
                     videoWidth={videoWidth}
                   />
                 </div>
-                {isMobile
-                  ? <MobileHeroSectionBottom translateY={translateY} />
-                  : isTablet
-                    ? <TabletHeroSectionBottom translateY={translateY} />
-                    : <DesktopHeroSectionBottom translateY={translateY} />
-                }
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    filter: "blur(6px)"
+                  }}
+                  animate={{
+                    opacity: 1,
+                    filter: "blur(0px)"
+                  }}
+                  transition={{
+                    delay: 0.3,
+                    duration: 0.8
+                  }}
+                >
+                  {isMobile
+                    ? <MobileHeroSectionBottom translateY={translateY} />
+                    : isTablet
+                      ? <TabletHeroSectionBottom translateY={translateY} />
+                      : <DesktopHeroSectionBottom translateY={translateY} />
+                  }
+                </motion.div>
               </div>
             </div>
           </div>

@@ -1,5 +1,16 @@
-import { AnimatePresence, motion, MotionValue } from "framer-motion"
+import { AnimatePresence, motion, MotionValue, type Variants } from "framer-motion"
 import { VideoPlayPointerAsMouseFollower } from "../../../components/custom-cursor"
+
+const variants: Variants = {
+  "initial": {
+      opacity: 0,
+      scale: 0
+  },
+  "animate": {
+      opacity: 1,
+      scale: 1
+  }
+}
 
 interface Props {
   videoWidth: MotionValue<string> | string,
@@ -13,12 +24,19 @@ export function Video({ handleScroll, isVisibleCursor, setVisibleCursor, videoHe
   return (
     <motion.div
       className='relative z-100 rounded-xl overflow-hidden cursor-none w-full bg-red-200'
+      initial="initial"
+      animate="animate"
+      transition={{
+        duration: 1.3,
+        delay: 0.3
+      }}
       style={{
         width: videoWidth,
         height: videoHeight,
       }}
       onHoverStart={() => setVisibleCursor(true)}
       onHoverEnd={() => setVisibleCursor(false)}
+      variants={variants}
     >
       <AnimatePresence >
         {isVisibleCursor && <VideoPlayPointerAsMouseFollower />}

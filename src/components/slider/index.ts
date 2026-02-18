@@ -1,3 +1,5 @@
 export { Slider } from "./slider"
 export { SliderItem } from "./slider-item"
 export { MaybeSliderItem } from "./maybe-slider-item"
+export { useSliderControls } from "./use-slider-controls"
+export { type SliderControlsType } from "./types"

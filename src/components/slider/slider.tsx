@@ -1,55 +1,18 @@
 import clsx from "clsx";
-import { motion, useMotionValue, animate } from "framer-motion";
-import { type ReactNode, useRef } from "react";
+import { motion } from "framer-motion";
+import { type ReactNode } from "react";
+import type { SliderControlsType } from "./types";
+
 
 interface SliderProps {
     children: ReactNode;
+    controls: SliderControlsType
     className?: string;
     gap?: number;
 }
 
-export function Slider({ children, gap = 16, className }: SliderProps) {
-    const trackRef = useRef<HTMLDivElement | null>(null);
-    const x = useMotionValue(0);
-
-    const snapToNearest = () => {
-        if (!trackRef.current) return;
-
-        const track = trackRef.current;
-        const items = Array.from(track.children) as HTMLElement[];
-
-        const current = -x.get();
-
-        const trackWidth = track.clientWidth;
-        const maxScroll = track.scrollWidth - trackWidth;
-
-        let closestTarget = 0;
-        let minDistance = Infinity;
-
-        items.forEach((item, index) => {
-            const itemLeft = item.offsetLeft;
-
-            const target =
-                index === items.length - 1
-                    ? itemLeft - (trackWidth - item.offsetWidth)
-                    : itemLeft;
-
-            const distance = Math.abs(current - target);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestTarget = target;
-            }
-        });
-
-        const clamped = Math.max(0, Math.min(closestTarget, maxScroll));
-
-        animate(x, -clamped, {
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-        });
-    };
+export function Slider({ children, controls, className }: SliderProps) {
+    const { snapToNearest, trackRef, x } = controls;
 
     return (
         <div className={clsx("overflow-hidden", className)}>

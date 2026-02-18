@@ -6,6 +6,8 @@ type BreakpointConfig = {
     rows?: string
     areas?: string[]
     gap?: string
+    rowGap?: string
+    columnGap?: string
 }
 
 export type GridProps = {
@@ -26,6 +28,8 @@ const applyConfig = (c?: BreakpointConfig) =>
         ${c.rows && `grid-template-rows: ${c.rows};`}
         ${createAreas(c.areas)}
         ${c.gap && `gap: ${c.gap};`}
+        ${c.rowGap && `row-gap: ${c.rowGap};`}
+        ${c.columnGap && `column-gap: ${c.columnGap};`}
     `
 
 export const Grid = styled.div<GridProps>`

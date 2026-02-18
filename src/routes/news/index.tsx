@@ -3,7 +3,7 @@ import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 import { Link } from "@tanstack/react-router"
 import type { NewsDto } from '../../types/news.types'
-import { NewsCard } from '../../components/card'
+import { NewsCard } from '../../components/cards'
 
 
 export const Route = createFileRoute('/news/')({

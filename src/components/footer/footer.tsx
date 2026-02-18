@@ -38,8 +38,8 @@ const configGrid: GridProps = {
 
 export function Footer() {
     return (
-        <footer className='pb-[24px] flex flex-col gap-[15px] xl:px-0 xl:pb-[2.22vw]'>
-            <Container >
+        <footer className='pb-[24px]  xl:px-0 xl:pb-[2.22vw]'>
+            <Container className='flex flex-col gap-[10px] md:gap-[15px] xl:gap-[1.5625vw]'>
                 <Grid {...configGrid} className='pt-[24px] border-t md:pt-[min(2.6041666667vw,2.6041666667vw)]'>
                     <GridItem area='logo' className='hidden md:block xl:justify-self-end'>
                         <OnlyDigitalIcon className='w-[154px] xl:w-[13.3333333333vw]' />

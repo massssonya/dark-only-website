@@ -1,12 +1,35 @@
-import { motion, MotionValue } from "framer-motion"
+import { motion, MotionValue, type Variants } from "framer-motion"
 import { LinkButton } from "../../../components/ui/link"
 import { AwwwardsIcon, CSSDAIcon, MixxRussiaIcon, RatingRunetIcon, GoldSiteIcon } from "../../../components/ui/icons"
 import { CreativeDigitalProduction } from "./creative-digital-production"
-import type { ReactNode } from "react"
+import { type ReactNode } from "react"
+
+const containerVariants: Variants = {
+  "initial": {},
+  "animate": {
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.11
+    }
+  }
+}
+
+const buttonsVariants: Variants = {
+  "initial": {
+    opacity: 0,
+    y: -20
+  },
+  "animate": {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6
+    }
+  }
+}
 
 
 export function HeroSectionTop({ translateY }: { translateY: MotionValue<string> | string }) {
-
 
   return (
     <motion.div
@@ -17,20 +40,29 @@ export function HeroSectionTop({ translateY }: { translateY: MotionValue<string>
     >
       <CreativeDigitalProduction />
       {/* buttons */}
-      <div className='hidden xl:flex flex-col gap-3'>
+      <motion.div
+        className='hidden xl:flex flex-col gap-3'
+        initial="initial"
+        animate="animate"
+        variants={containerVariants}
+      >
         {
           Buttons.map(button => (
-            <LinkButton
+            <motion.div
               key={button.to}
-              to={button.to}
-              leftText={button.number}
-              className='hover:scale-[1.15]'
+              variants={buttonsVariants}
             >
-              {button.icon}
-            </LinkButton>
+              <LinkButton
+                to={button.to}
+                leftText={button.number}
+                className='hover:scale-[1.15]'
+              >
+                {button.icon}
+              </LinkButton>
+            </motion.div>
           ))
         }
-      </div>
+      </motion.div>
     </motion.div>)
 }
 
@@ -39,6 +71,8 @@ interface ButtonProps {
   icon: ReactNode,
   number: number
 }
+
+
 
 const Buttons: ButtonProps[] = [
   {

@@ -70,7 +70,37 @@ const variants = {
           border-radius: 3.90625vw;
         }
     }
-`
+`,
+  control: `
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 12px;
+    color: #0e0e0e;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transition: background-color .3s, opacity .3s;
+    
+    :hover{
+      outline: none;
+      background-color: #e4e4e4;
+    }
+
+    :disabled {
+      cursor: not-allowed;
+      opacity: .5;
+    }
+    
+    @media (min-width: 768px) {
+        height: 48px;
+        width: 48px;
+    }
+
+    @media (min-width: 1280px) {
+        height: 4.296875vw;
+        width: 4.296875vw;
+    }
+  `
 } as const
 
 const width = {
