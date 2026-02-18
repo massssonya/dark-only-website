@@ -1,3 +1,4 @@
+import { clientsConfig, type ClientKey } from "../../config/clients.config";
 import { Card, HoverTarget } from "../ui/card";
 import { Container, Grid } from "../ui/layout";
 
@@ -8,7 +9,7 @@ type Props = {
     client: string;
 }
 
-export function ClientCard({ projects }: { projects: Props[] }) {
+export function ClientCard({ projects, clientId }: { projects: Props[], clientId: string }) {
     return (
         <Card
             $variant="clientCard"
@@ -43,7 +44,7 @@ export function ClientCard({ projects }: { projects: Props[] }) {
                 <img
                     className="object-cover w-full h-full"
                     alt=""
-                    src="https://api.only.digital/storage/2025/08/01/0be693bf177cbba34283430f4417285b61288181.jpg"
+                    src={clientsConfig[clientId as ClientKey].bg ?? clientsConfig.default.bg}
                 />
             </div>
         </Card>

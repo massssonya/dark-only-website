@@ -37,7 +37,7 @@ export function LargeProjectSection() {
 
                 return (
                   <SliderItem key={clientId}>
-                    <ClientCard projects={projects} />
+                    <ClientCard projects={projects} clientId={clientId} />
                   </SliderItem>
                 );
               })}

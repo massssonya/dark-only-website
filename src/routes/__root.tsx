@@ -27,9 +27,10 @@ const RootLayout = () => {
       <main className="relative flex-1">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isOpenBurgerMenu
-            ? { opacity: 1, transition: { duration: 1 } }
-            : { display: 'none', opacity: 0, transition: { duration: 1 } }
+          animate={
+            isOpenBurgerMenu
+              ? { opacity: 1, transition: { duration: 1 } }
+              : { display: 'none', opacity: 0, transition: { duration: 1 } }
           }
           className='absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur z-[20]' />
         <AnimatePresence mode="wait">
