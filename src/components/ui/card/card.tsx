@@ -12,7 +12,7 @@ const variants = {
             width: auto;
         }
 `,
-  clientCard: css`
+  clientWithProjectsCard: css`
         overflow: hidden;
         width: 315px;
         height: 240px;

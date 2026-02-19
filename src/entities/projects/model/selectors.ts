@@ -55,3 +55,33 @@ export const groupByClient = (data?: Project[]) => {
         },
     });
 };
+
+export const groupBySector = (data?: Project[]) => {
+    if (!data) return [];
+    
+    const counts = data.reduce((acc, project) => {
+        const sector = project.sector;
+        acc[sector] = (acc[sector] || 0) + 1;
+        return acc;
+    }, {} as Record<string, number>);
+
+    return Object.entries(counts).map(([sector, numberProjects]) => ({
+        sector,
+        numberProjects
+    }));
+};
+
+export const onlyClients = (data?: Project[]) => {
+    if (!data) return [];
+
+    const clients = data.reduce((acc, project) => {
+        const clientId = project.clientId as string
+        acc[clientId] = { title: project.client }
+        return acc
+    }, {} as Record<string, { title: string }>)
+
+    return Object.entries(clients).map(([clientId, items]) => ({
+        id: clientId,
+        title: items.title
+    }))
+}

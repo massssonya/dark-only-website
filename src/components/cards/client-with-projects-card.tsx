@@ -9,10 +9,10 @@ type Props = {
     client: string;
 }
 
-export function ClientCard({ projects, clientId }: { projects: Props[], clientId: string }) {
+export function ClientWithProjectsCard({ projects, clientId }: { projects: Props[], clientId: string }) {
     return (
         <Card
-            $variant="clientCard"
+            $variant="clientWithProjectsCard"
             $hover="increaseRounded"
             className="relative"
         >

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProjects } from "../api/fetch-projects";
 import { uniqueByClient } from "../model/normalize";
-import { groupByClient, groupByFilter } from "../model/selectors";
+import { groupByClient, groupByFilter, groupBySector, onlyClients } from "../model/selectors";
 
 const projectKeys = {
   all: ['projects'] as const,
@@ -12,17 +12,19 @@ const projectKeys = {
 };
 
 export const useProjectsQuery = () => {
-  return useQuery ({
+  return useQuery({
     queryKey: projectKeys.all,
     queryFn: fetchProjects,
     select: (data) => {
-      
+
       const normalized = uniqueByClient(data);
       return {
         raw: data,
         projects: normalized,
+        clients: onlyClients(data) ?? [],
         groupedProjectsByFilter: groupByFilter(normalized),
         groupedProjectsByClient: groupByClient(data) ?? {},
+        groupedSectors: groupBySector(data) ?? {}
       };
     },
   });

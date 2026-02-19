@@ -1,4 +1,4 @@
-import { ClientCard } from "../../../components/cards";
+import { ClientWithProjectsCard } from "../../../components/cards";
 import SectionLayout from "../../../components/layout/section-layout";
 import { Slider, SliderItem, useSliderControls } from "../../../components/slider";
 import { Button } from "../../../components/ui/button";
@@ -37,7 +37,7 @@ export function LargeProjectSection() {
 
                 return (
                   <SliderItem key={clientId}>
-                    <ClientCard projects={projects} clientId={clientId} />
+                    <ClientWithProjectsCard projects={projects} clientId={clientId} />
                   </SliderItem>
                 );
               })}
