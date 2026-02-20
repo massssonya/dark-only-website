@@ -18,13 +18,14 @@ export function Content() {
                 }}
             >
                 {
-                    directionCards.map(card => (
-                        <GridItem area={card.id} key={card.id} >
+                    directionCards.map(({ id, description, headerText, title }) => (
+                        <GridItem area={id} key={id} >
                             <DirectionCard
-                                headerText={card.headerText}
-                                title={card.title}
-                                description={card.description}
-                            />
+                                headerText={headerText}
+                                title={title}
+                                description={description}
+                            >
+                            </DirectionCard>
                         </GridItem>
                     ))
                 }
