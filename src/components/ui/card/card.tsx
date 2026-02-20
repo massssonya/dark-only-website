@@ -5,6 +5,31 @@ const variants = {
   base: css`
         
     `,
+  directionCard: css`
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      
+      height: 174px;
+      width: 100%;
+
+      pointer-events: none;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      background-color: black;
+
+      @media (min-width: 768px) {
+        height: 240px;
+      }
+
+      @media (min-width: 1280px) {
+        height: 22.65625vw;
+        padding: 1.5625vw;
+      }
+    `,
   projectCard: css`
         width: 315px;
 
