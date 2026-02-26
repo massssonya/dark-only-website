@@ -16,20 +16,19 @@ interface HeaderMenuProps {
 }
 
 export function Header({ isOpenBurgerMenu, toggleBurgerMenu }: HeaderMenuProps) {
-    const { isTablet, isMobile } = useMediaQueryState()
-    const isDisableAnimation = isTablet || isMobile
+    const { isDesktop } = useMediaQueryState()
     const { scrollDirection } = useSharedScrollState()
     const { hasAnimatedOnce, markAnimated } = useHeaderAnimationState()
 
-    const listVariants = isDisableAnimation
-        ? undefined
-        : createHeaderListVariants(hasAnimatedOnce)
+    const listVariants = isDesktop
+        ? createHeaderListVariants(hasAnimatedOnce)
+        : undefined
 
     return (
         <motion.header
-            variants={isDisableAnimation ? undefined : headerVariants}
-            initial={isDisableAnimation ? false : "visible"}
-            animate={isDisableAnimation
+            variants={isDesktop ? headerVariants : undefined}
+            initial={isDesktop ? "visible" : false }
+            animate={!isDesktop
                 ? false
                 : scrollDirection === 'up'
                     ? 'visible'

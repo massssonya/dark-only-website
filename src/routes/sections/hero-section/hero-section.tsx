@@ -16,7 +16,8 @@ export function HeroSection() {
     videoHeight,
     videoWidth,
     isTablet,
-    isMobile
+    isMobile,
+    isDesktop
   } = useScrollSection()
 
 
@@ -50,7 +51,7 @@ export function HeroSection() {
                             xl:absolute xl:inset-0
                             '>
                   <Video
-                    isVisibleCursor={isHoverVideo && !isTablet}
+                    isVisibleCursor={isHoverVideo && isDesktop}
                     handleScroll={handleScroll}
                     setVisibleCursor={setHoverVideo}
                     videoHeight={videoHeight}

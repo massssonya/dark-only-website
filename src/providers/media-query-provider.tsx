@@ -3,17 +3,19 @@ import { useMediaQuery } from "../hooks/use-media-query";
 
 type MediaQueryState = {
     isTablet: boolean,
-    isMobile: boolean
+    isMobile: boolean,
+    isDesktop: boolean
 }
 
 const MediaQueryContext = createContext<MediaQueryState | undefined>(undefined)
 
 export function MediaQueryStateProvider({ children }: { children: ReactNode }) {
-    const isMobile = useMediaQuery('(max-width: 768px)')
-    const isTablet = useMediaQuery('(max-width: 1280px)')
+    const isMobile = useMediaQuery('(max-width: 767px)');
+    const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
+    const isDesktop = useMediaQuery('(min-width: 1280px)');
 
     return (
-        <MediaQueryContext.Provider value={{ isMobile, isTablet }}>
+        <MediaQueryContext.Provider value={{ isMobile, isTablet, isDesktop }}>
             {children}
         </MediaQueryContext.Provider>
     )

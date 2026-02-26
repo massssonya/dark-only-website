@@ -3,7 +3,8 @@ import styled from "@emotion/styled"
 
 const variants = {
   base: css`
-        
+        padding: 20px;
+        background-color: black;
     `,
   directionCard: css`
       position: relative;
@@ -12,8 +13,6 @@ const variants = {
       
       height: 174px;
       width: 100%;
-
-      pointer-events: none;
       
       display: flex;
       flex-direction: column;
@@ -72,26 +71,15 @@ export const HoverTarget = styled.div`
 export const Card = styled.div<Props>`
   border-radius: 20px;
   ${({ $variant = 'base' }) => variants[$variant]}
-
   transition: border-radius 0.3s ease;
 
-  ${({ $onlyHoverTarget = false }) => $onlyHoverTarget
-    ? css`
-    & ${HoverTarget} {
-      overflow: hidden;
-      border-radius: 20px;
-    }
-    &:hover ${HoverTarget} {
-      border-radius: 50px;
-      transform: scale(1.02);
-    }
-  `
-    : css`
-    &:hover {
-      border-radius: 50px;
-    }
-    &:hover ${HoverTarget} {
-      transform: scale(1.02);
-    }
-  `}
+  /* hover работает только если есть HoverTarget */
+  &:has(${HoverTarget}):hover {
+    border-radius: 50px;
+  }
+
+  &:has(${HoverTarget}):hover ${HoverTarget} {
+    transform: scale(1.02);
+    border-radius: 50px;
+  }
 `

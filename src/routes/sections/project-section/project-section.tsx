@@ -1,11 +1,9 @@
 import SectionLayout from "../../../components/layout/section-layout";
 import { Container } from "../../../components/ui/layout";
-import { useMediaQueryState } from "../../../providers/media-query-provider";
 import { Content } from "./content";
 import { Description } from "./description";
 
-export function ProjectSection() {
-    const { isMobile } = useMediaQueryState()
+export function ProjectSection({isMobile}:{isMobile:boolean}) {
 
     return (
         <section

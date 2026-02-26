@@ -53,8 +53,8 @@ export function HeroSectionTop({ translateY }: { translateY: MotionValue<string>
               variants={buttonsVariants}
             >
               <LinkButton
-                to={button.to}
-                leftText={button.number}
+                href={button.to}
+                // leftText={button.number}
                 className='hover:scale-[1.15]'
               >
                 {button.icon}

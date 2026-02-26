@@ -1,5 +1,6 @@
 import { CoffeeIcon } from "../../../components/ui/icons";
-import { motion, type Variants } from "framer-motion"
+import { type Variants } from "framer-motion"
+import { MotionSpanComponent, SpanComponent } from "../../../components/ui/text";
 
 const variants: Variants = {
     "creative-initial": {
@@ -45,8 +46,8 @@ export function CreativeDigitalProduction() {
                         flex flex-wrap justify-start items-center gap-x-2 gap-y-0 
                         sm:max-w-[65vw]
                         '>
-            <motion.span
-                className='word'
+            <MotionSpanComponent
+                $variant="word"
                 initial="creative-initial"
                 animate="creative-animate"
                 transition={{
@@ -55,9 +56,9 @@ export function CreativeDigitalProduction() {
                 variants={variants}
             >
                 Creative
-            </motion.span>
-            <motion.span
-                className='w-[calc(2rem+.78125vw)]'
+            </MotionSpanComponent>
+            <MotionSpanComponent
+                $variant="icon"
                 initial="icon-initial"
                 animate="icon-animate"
                 transition={{
@@ -66,10 +67,10 @@ export function CreativeDigitalProduction() {
                 }}
                 variants={variants}
             >
-                <CoffeeIcon className='w-full h-full cover' />
-            </motion.span>
-            <motion.span
-                className="word"
+                <CoffeeIcon />
+            </MotionSpanComponent>
+            <MotionSpanComponent
+                $variant="word"
                 initial="digital-initial"
                 animate="digital-animate"
                 transition={{
@@ -79,10 +80,10 @@ export function CreativeDigitalProduction() {
                 variants={variants}
             >
                 digital&nbsp;
-            </motion.span>
-            <span className='basis-full'></span>
-            <motion.span
-                className="word"
+            </MotionSpanComponent>
+            <SpanComponent $variant="line-break" />
+            <MotionSpanComponent
+                $variant="word"
                 initial="production-initial"
                 animate="production-animate"
                 transition={{
@@ -92,7 +93,7 @@ export function CreativeDigitalProduction() {
                 variants={variants}
             >
                 production&nbsp;
-            </motion.span>
+            </MotionSpanComponent>
         </div>
     )
 }

@@ -11,3 +11,4 @@ export { CSSDAIcon } from "./cssda-icon"
 export { MixxRussiaIcon } from "./mixxrussia-icon"
 export { RatingRunetIcon } from "./rating-runet-icon"
 export { GoldSiteIcon } from "./gold-site-icon"
+export { MobileAppIcon } from './mobile-app-icon'

@@ -4,11 +4,9 @@ import { Slider, SliderItem, useSliderControls } from "../../../components/slide
 import { Button } from "../../../components/ui/button";
 import { Container } from "../../../components/ui/layout";
 import { useProjects } from "../../../entities/projects/hooks/use-projects";
-import { useMediaQueryState } from "../../../providers/media-query-provider";
 
-export function LargeProjectSection() {
+export function LargeProjectSection({isMobile}:{isMobile:boolean}) {
   const controls = useSliderControls()
-  const { isMobile } = useMediaQueryState()
   const { groupedProjectsByClient } = useProjects()
 
   return (

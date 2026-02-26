@@ -60,6 +60,10 @@ img {
   font-size: 1.875rem;
 }
 
+.h1 {
+  font-size: 1.5rem;
+}
+
 .h0,
 .h1 {
   font-family: TT Runs, Arial, sans-serif;
@@ -153,6 +157,7 @@ img {
 }
 
 .buttons {
+  font-family: 'TT Runs Trial', sans-serif;
   font-weight: 600;
 }
 
@@ -179,6 +184,10 @@ img {
 @media (min-width: 375px) {
   .h0 {
     font-size: calc(1.3979rem + 2.03562vw);
+  }
+
+  .h1 {
+    font-size: calc(1.26145rem + 1.01781vw);
   }
 
   .h2 {

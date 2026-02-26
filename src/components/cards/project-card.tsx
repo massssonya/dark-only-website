@@ -20,7 +20,7 @@ export function ProjectCard({ img, client, title, description, tags }: Props) {
             className="select-none"
         >
             <div className="flex flex-col gap-[20px]">
-                <HoverTarget className="aspect-square">
+                <HoverTarget className="aspect-square overflow-hidden rounded-[20px]">
                     <img
                         draggable={false}
                         onDragStart={(e) => e.preventDefault()}

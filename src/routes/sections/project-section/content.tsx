@@ -3,7 +3,6 @@ import { Button } from "../../../components/ui/button";
 import { useProjects } from "../../../entities/projects/hooks/use-projects";
 import { ProjectCard } from "../../../components/cards";
 import { MobileCardSliders } from "./card-sliders";
-import type { Project } from "../../../entities/projects/model/types";
 
 
 export function Content({ isMobile }: { isMobile: boolean }) {
@@ -20,7 +19,9 @@ export function Content({ isMobile }: { isMobile: boolean }) {
                 >
                     {isMobile
                         ? <MobileCardSliders groupedCards={groupedProjectsByFilter} />
-                        : <DesktopGrid cards={projects} />
+                        : projects?.map(card => (
+                            <ProjectCard key={card.id} {...card} />
+                        ))
                     }
                 </Grid>
             </Container>
@@ -37,15 +38,5 @@ export function Content({ isMobile }: { isMobile: boolean }) {
             </Container>
         </div>
     )
-}
-
-function DesktopGrid({ cards = [] }: { cards?: Project[] }) {
-    return (
-        <>
-            {cards.map(card => (
-                <ProjectCard key={card.id} {...card} />
-            ))}
-        </>
-    );
 }
 

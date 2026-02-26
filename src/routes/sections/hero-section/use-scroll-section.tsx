@@ -1,10 +1,9 @@
 import { animate, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-
 import { useMediaQueryState } from "../../../providers/media-query-provider";
 
 export function useScrollSection() {
-  const { isMobile, isTablet } = useMediaQueryState()
+  const { isMobile, isTablet, isDesktop } = useMediaQueryState()
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -26,7 +25,7 @@ export function useScrollSection() {
   const videoWidthTransform = useTransform(scrollYProgress, [0, 1], ["30%", "100%"])
   const videoHeightTransform = useTransform(scrollYProgress, [0, 1], ["30%", "90%"])
 
-  const translateY = isTablet ? "0px" : translateYTransform
+  const translateY = (isTablet || isMobile) ? "0px" : translateYTransform
   const videoWidth = isMobile ? "100%" : isTablet ? "416px" : videoWidthTransform
   const videoHeight = isMobile ? "235px" : isTablet ? "auto" : videoHeightTransform
 
@@ -48,6 +47,6 @@ export function useScrollSection() {
   };
 
   return {
-    sectionRef, handleScroll, translateY, videoWidth, videoHeight, isTablet, isMobile
+    sectionRef, handleScroll, translateY, videoWidth, videoHeight, isTablet, isMobile, isDesktop
   }
 }

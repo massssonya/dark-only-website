@@ -1,5 +1,11 @@
 import styled from "@emotion/styled"
 
+const Primitive = styled.button`
+  box-sizing: border-box;
+  font-family: 'TT Runs Trial', sans-serif;
+  color: inherit;
+`
+
 const variants = {
   base: `
       height: fit-content;
@@ -113,7 +119,7 @@ interface Props {
   $width?: keyof typeof width;
 }
 
-export const Button = styled.button<Props>`
+export const Button = styled(Primitive)<Props>`
 ${({ $variant = 'base', $width = 'fit' }) => {
     const v = variants[$variant]
     const w = width[$width]
@@ -129,8 +135,6 @@ ${({ $variant = 'base', $width = 'fit' }) => {
       cursor: pointer;
 
       transition: background-color .3s ease, color .3s ease, border-radius .3s ease, scale .3s ease, box-shadow .3s ease;
-
-     
   `
   }
   }

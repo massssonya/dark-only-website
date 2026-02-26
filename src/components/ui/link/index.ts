@@ -1,3 +1,3 @@
 export { LinkHrefButton, LinkButton } from './link-button'
 export { SimpleLink, LinkUnderline } from './linkOld'
-export { Link } from "./link"
+export { Link, MotionLink } from "./link"
