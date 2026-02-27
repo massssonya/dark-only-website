@@ -12,3 +12,5 @@ export { MixxRussiaIcon } from "./mixxrussia-icon"
 export { RatingRunetIcon } from "./rating-runet-icon"
 export { GoldSiteIcon } from "./gold-site-icon"
 export { MobileAppIcon } from './mobile-app-icon'
+export { CroockedArrowIcon } from './croocked-arrow'
+export { WebIcon } from "./web-icon"

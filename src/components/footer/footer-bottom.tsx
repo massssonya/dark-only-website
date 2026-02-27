@@ -14,7 +14,7 @@ export function FooterBottom() {
                 whileInView="visible"
             >
                 <MotionSpanComponent $variant='word'
-                    className='inline-block overflow-hidden text-start'
+                    className='overflow-hidden text-start'
                     variants={VARIANTS.FADE_UP_ITEM}
                 >
                     creative&nbsp;

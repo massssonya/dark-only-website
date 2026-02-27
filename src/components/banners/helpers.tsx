@@ -20,6 +20,12 @@ export const br = (id: string) => ({
     element: "line-break" as const
 })
 
+export const badge = (id:string, children: ReactNode) => ({
+    id,
+    element: "badge" as const,
+    children
+})
+
 export const responsiveImageForBannerFactory = (id: string, props: ResponsiveImageProps): BannerImageItem => ({
     id,
     node: <ResponsiveImage {...props} />
