@@ -1,10 +1,10 @@
 import { Container, Grid } from "../../../components/ui/layout";
-import { useProjects } from "../../../entities/projects/hooks/use-projects";
 import { clientsConfig, type ClientKey } from "../../../config/clients.config";
 import { WithLogoClientCard } from "../../../components/cards";
+import { useProjectsClients } from "../../../entities/projects/hooks";
 
 export function Content() {
-    const { clients } = useProjects()
+    const { data: clients } = useProjectsClients()
 
     return (
         <Container className="flex flex-col justify-center gap-[60px]">

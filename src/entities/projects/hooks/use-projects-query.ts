@@ -1,31 +1,30 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
 import { fetchProjects } from "../api/fetch-projects";
-import { uniqueByClient } from "../model/normalize";
-import { groupByClient, groupByFilter, groupBySector, onlyClients } from "../model/selectors";
+import { projectKeys } from "./keys";
+import { normalizeProjects } from "../model/normalize";
 
-const projectKeys = {
-  all: ['projects'] as const,
-  // lists: () => [...productKeys.all, 'list'] as const,
-  // list: (filters: object) => [...productKeys.lists(), { ...filters }] as const,
-  // details: () => [...productKeys.all, 'detail'] as const,
-  // detail: (id: string | number) => [...productKeys.details(), id] as const,
-};
-
-export const useProjectsQuery = () => {
+export const useProjectsQuery = <T = Awaited<ReturnType<typeof fetchProjects>>>(
+  options?: Omit<
+    UseQueryOptions<
+      Awaited<ReturnType<typeof fetchProjects>>,
+      unknown,
+      T
+    >,
+    "queryKey" | "queryFn"
+  >
+) => {
   return useQuery({
     queryKey: projectKeys.all,
     queryFn: fetchProjects,
-    select: (data) => {
-
-      const normalized = uniqueByClient(data);
-      return {
-        raw: data,
-        projects: normalized,
-        clients: onlyClients(data) ?? [],
-        groupedProjectsByFilter: groupByFilter(normalized),
-        groupedProjectsByClient: groupByClient(data) ?? {},
-        groupedSectors: groupBySector(data) ?? {}
-      };
-    },
+    staleTime: 5 * 60 * 1000,
+    ...options,
   });
+};
+
+export const useNormalizedProjects = () => {
+  const query = useProjectsQuery({
+    select: (data) => normalizeProjects(data),
+  });
+  
+  return {...query}
 };

@@ -21,6 +21,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.25",
     "html-react-parser": "^5.2.17",
+    "memoize-one": "^6.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwind-scrollbar": "^4.0.2",

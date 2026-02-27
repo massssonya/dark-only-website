@@ -1,12 +1,15 @@
 import { Container, Grid } from "../../../components/ui/layout";
 import { Button } from "../../../components/ui/button";
-import { useProjects } from "../../../entities/projects/hooks/use-projects";
 import { ProjectCard } from "../../../components/cards";
 import { MobileCardSliders } from "./card-sliders";
+import { useUniqueProjects } from "../../../entities/projects/hooks";
+import { useProjectsByFilter } from "../../../entities/projects/hooks";
+
 
 
 export function Content({ isMobile }: { isMobile: boolean }) {
-    const { projects, groupedProjectsByFilter } = useProjects()
+    const { data: uniqueProjects } = useUniqueProjects()
+    const {data: groupedProjectsByFilter} = useProjectsByFilter()
 
     return (
         <div className="flex flex-col items-center">
@@ -19,7 +22,7 @@ export function Content({ isMobile }: { isMobile: boolean }) {
                 >
                     {isMobile
                         ? <MobileCardSliders groupedCards={groupedProjectsByFilter} />
-                        : projects?.map(card => (
+                        : uniqueProjects?.map(card => (
                             <ProjectCard key={card.id} {...card} />
                         ))
                     }

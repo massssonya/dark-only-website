@@ -1,9 +1,9 @@
 import { Link } from "../../../components/ui/link";
 import { Tag } from "../../../components/ui/tag";
-import { useProjects } from "../../../entities/projects/hooks/use-projects";
+import { useProjectsSectors } from "../../../entities/projects/hooks";
 
 export function Description() {
-    const { groupedSectors } = useProjects()
+    const { data: groupedSectors } = useProjectsSectors()
 
     return (
         <div className="flex flex-col gap-[1.67vw]">

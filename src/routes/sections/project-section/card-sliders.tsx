@@ -4,7 +4,7 @@ import { MaybeSliderItem, Slider, useSliderControls } from "../../../components/
 import { Container } from "../../../components/ui/layout";
 import type { Project } from "../../../entities/projects/model/types";
 
-export function MobileCardSliders({ groupedCards = {} }:
+export function MobileCardSliders({ groupedCards }:
     { groupedCards?: Record<string, { title: string; items: Project[] }> }
 ) {
     if (!groupedCards) return

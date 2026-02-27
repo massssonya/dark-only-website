@@ -3,11 +3,11 @@ import SectionLayout from "../../../components/layout/section-layout";
 import { Slider, SliderItem, useSliderControls } from "../../../components/slider";
 import { Button } from "../../../components/ui/button";
 import { Container } from "../../../components/ui/layout";
-import { useProjects } from "../../../entities/projects/hooks/use-projects";
+import { useProjectsByClient } from "../../../entities/projects/hooks";
 
-export function LargeProjectSection({isMobile}:{isMobile:boolean}) {
+export function LargeProjectSection({ isMobile }: { isMobile: boolean }) {
   const controls = useSliderControls()
-  const { groupedProjectsByClient } = useProjects()
+  const { data: groupedProjectsByClient } = useProjectsByClient()
 
   return (
     <section className='mt-[8vw] flex flex-col inset-0'>
